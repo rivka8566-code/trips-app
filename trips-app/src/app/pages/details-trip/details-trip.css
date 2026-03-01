@@ -1,0 +1,175 @@
+.trip-details-container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  background: white;
+  border: 2px solid #4a7c59;
+  color: #4a7c59;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s;
+}
+
+.back-btn:hover {
+  background: #4a7c59;
+  color: white;
+}
+
+.trip-details-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.trip-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.trip-content {
+  padding: 30px;
+}
+
+.trip-title {
+  color: #2d5016;
+  font-size: 36px;
+  margin: 0 0 30px 0;
+}
+
+.trip-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f1f8f4;
+  border-radius: 10px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #3d6b3d;
+  font-size: 14px;
+}
+
+.info-value {
+  font-size: 18px;
+  color: #2d5016;
+  font-weight: 700;
+}
+
+.trip-description {
+  margin-bottom: 30px;
+}
+
+.trip-description h3 {
+  color: #2d5016;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.trip-description p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.registration-section {
+  background: #f1f8f4;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.registration-section h3 {
+  color: #2d5016;
+  font-size: 22px;
+  margin: 0 0 20px 0;
+}
+
+.registration-form {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.registration-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #3d6b3d;
+  font-weight: 600;
+}
+
+.registration-form input {
+  padding: 12px;
+  border: 2px solid #a8d5a8;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 150px;
+}
+
+.registration-form input:focus {
+  outline: none;
+  border-color: #4a7c59;
+}
+
+.register-btn {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(74, 124, 89, 0.4);
+}
+
+.already-registered {
+  margin-top: 15px;
+  color: #2d5016;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.cancel-section {
+  text-align: center;
+}
+
+.cancel-registration-btn {
+  padding: 12px 30px;
+  background: #ef5350;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cancel-registration-btn:hover {
+  background: #d32f2f;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,33 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2>🌲 הרשמה לעולם הטיולים</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="username">שם משתמש</label>
+        <input type="text" id="username" formControlName="name" required>
+        @if(nameInvalid)
+        {
+        <small class="error-messages">שם המשתמש לא תקין</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="password">סיסמה</label>
+        <input type="password" id="password" formControlName="password" required>
+        @if(passwordInvalid)
+        {
+        <small class="error-messages">הסיסמה לא תקינה</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="password-verify">אימות סיסמה</label>
+        <input type="password" id="password-verify" formControlName="confirmPassword" required>
+        @if(confirmPasswordInvalid)
+        {
+        <small class="error-messages">אימות הסיסמה לא תקין</small>
+        }
+      </div>
+      <button type="submit" class="register-btn">הרשם</button>
+      <p class="login-link">כבר רשום? <a href="/login">התחבר כאן</a></p>
+    </form>
+  </div>
+</div>
