@@ -1,33 +1,60 @@
 <div class="register-container">
   <div class="register-card">
-    <h2>🌲 הרשמה לעולם הטיולים</h2>
+    <h2>Sign Up</h2>
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-group">
-        <label for="username">שם משתמש</label>
-        <input type="text" id="username" formControlName="name" required>
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="name" [class.error]="nameInvalid" required>
         @if(nameInvalid)
         {
-        <small class="error-messages">שם המשתמש לא תקין</small>
+        <small class="error-message">Username is invalid</small>
         }
       </div>
       <div class="form-group">
-        <label for="password">סיסמה</label>
-        <input type="password" id="password" formControlName="password" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" [class.error]="emailInvalid" required>
+        @if(emailInvalid)
+        {
+        <small class="error-message">Email is invalid</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" [class.error]="passwordInvalid" required>
+          @if(password.value && password.value.length > 0) {
+            <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                @if(showPassword) {
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                  <line x1="1" y1="1" x2="23" y2="23"/>
+                } @else {
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                }
+              </svg>
+            </button>
+          }
+        </div>
         @if(passwordInvalid)
         {
-        <small class="error-messages">הסיסמה לא תקינה</small>
+        <small class="error-message">Password is invalid</small>
         }
       </div>
       <div class="form-group">
-        <label for="password-verify">אימות סיסמה</label>
-        <input type="password" id="password-verify" formControlName="confirmPassword" required>
+        <label for="password-verify">Confirm Password</label>
+        <input type="password" id="password-verify" formControlName="confirmPassword" [class.error]="confirmPasswordInvalid || matchPasswordsInvalid" required>
         @if(confirmPasswordInvalid)
         {
-        <small class="error-messages">אימות הסיסמה לא תקין</small>
+        <small class="error-message">Confirm password is invalid</small>
+        }
+        @if(matchPasswordsInvalid)
+        {
+        <small class="error-message">Passwords do not match</small>
         }
       </div>
-      <button type="submit" class="register-btn">הרשם</button>
-      <p class="login-link">כבר רשום? <a href="/login">התחבר כאן</a></p>
+      <button type="submit" class="register-btn">Sign Up</button>
+      <p class="login-link">Already have an account? <a href="/login">Login</a></p>
     </form>
   </div>
 </div>

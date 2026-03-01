@@ -1,30 +1,35 @@
 <div class="all-trips-container">
   <div class="page-header">
-    <h2>🌍 כל הטיולים</h2>
-    <button class="add-trip-btn">+ הוסף טיול חדש</button>
+    <h2>All Trips</h2>
+    @if(isAdmin()) {
+      <button class="add-trip-btn">+ Add New Trip</button>
+    }
   </div>
 
   <div class="filters-section">
     <div class="filter-group">
-      <label>סינון לפי יעד:</label>
-      <input type="text" placeholder="חפש יעד...">
+      <label>Filter by destination:</label>
+      <input type="text" placeholder="Search destination...">
     </div>
     <div class="filter-group">
-      <label>סינון לפי תאריך:</label>
+      <label>Filter by date:</label>
       <input type="date">
     </div>
     <div class="filter-group">
-      <label>סינון לפי מחיר:</label>
-      <input type="number" placeholder="מחיר מקסימלי">
+      <label>Filter by price:</label>
+      <input type="number" placeholder="Max price">
     </div>
     <div class="filter-group">
-      <label>מיון לפי:</label>
+      <label>Sort by:</label>
       <select>
-        <option>תאריך</option>
-        <option>מחיר</option>
-        <option>יעד</option>
+        <option>Date</option>
+        <option>Price</option>
+        <option>Destination</option>
       </select>
     </div>
   </div>
 
+  <div>
+    <app-trip-list [isAdmin]="isAdmin()"></app-trip-list>
+  </div>
 </div>

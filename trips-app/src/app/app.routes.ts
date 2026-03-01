@@ -13,7 +13,7 @@ export const routes: Routes = [
     { path: 'register', component: Register },
   
     {
-      path: '',
+      path: 'home',
       component: Home,
       children: [
         { path: '', redirectTo: 'all-trips', pathMatch: 'full' },

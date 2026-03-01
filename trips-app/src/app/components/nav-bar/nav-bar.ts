@@ -11,21 +11,23 @@ import { CommonModule } from '@angular/common';
 export class NavBar {
   private router = inject(Router);
   activeTab: string = 'all-trips';
+  userName = JSON.parse(localStorage.getItem('user') || '{}').name || 'Guest';
   
   logout() {
     console.log('User logged out');
+    localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
   
   myTrips() {
     this.activeTab = 'my-trips';
     console.log('Navigating to My Trips');
-    this.router.navigate(['/my-trips']);
+    this.router.navigate(['/home/my-trips']);
   }
   
   allTrips() {
     this.activeTab = 'all-trips';
     console.log('Navigating to All Trips');
-    this.router.navigate(['/all-trips']);
+    this.router.navigate(['/home/all-trips']);
   }
 }
