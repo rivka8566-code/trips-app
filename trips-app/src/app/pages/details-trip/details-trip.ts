@@ -39,12 +39,12 @@ export class DetailsTrip implements OnInit {
     try {
       const bookings = await getBookings();
       const isRegistered = bookings.some(
-        (b: any) => b.tripId === tripId && b.userId === this.currentUserId
+        (b: any) => Number(b.tripId) === tripId && b.userId === this.currentUserId
       );
       this.isAlreadyRegistered.set(isRegistered);
       
       const total = bookings
-        .filter((b: any) => b.tripId === tripId)
+        .filter((b: any) => Number(b.tripId) === tripId)
         .reduce((sum: number, b: any) => sum + (b.people || 0), 0);
       this.totalParticipants.set(total);
     } catch (error) {
