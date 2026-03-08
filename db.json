@@ -73,9 +73,9 @@
       "destination": "Barcelona, Spain",
       "startDate": "2026-05-05",
       "endDate": "2026-05-10",
-      "price": 1550,
-      "description": "Enjoy Gaudi architecture, La Rambla, and Mediterranean beaches.",
-      "image": "https://picsum.photos/id/1025/400/200"
+      "price": 1560,
+      "image": "https://picsum.photos/id/1025/400/200",
+      "description": "Enjoy Gaudi architecture, La Rambla, and Mediterranean beaches."
     },
     {
       "id": "5",
@@ -143,9 +143,9 @@
       "destination": "Interlaken, Switzerland",
       "startDate": "2026-08-15",
       "endDate": "2026-08-22",
-      "price": 2200,
-      "description": "Hiking in the Alps, Jungfraujoch excursion, and scenic train rides.",
-      "image": "https://picsum.photos/id/1036/400/200"
+      "price": 2230,
+      "image": "https://picsum.photos/id/1036/400/200",
+      "description": "Hiking in the Alps, Jungfraujoch excursion, and scenic train rides."
     },
     {
       "id": "12",
@@ -164,8 +164,8 @@
       "startDate": "2026-09-20",
       "endDate": "2026-09-27",
       "price": 1650,
-      "description": "Explore Old Town, island hopping, and Adriatic Sea adventures.",
-      "image": "https://picsum.photos/id/1043/400/200"
+      "image": "https://picsum.photos/id/1043/400/200",
+      "description": "Explore Old Town, island hopping, and Adriatic Sea adventures."
     },
     {
       "id": "14",
@@ -173,9 +173,9 @@
       "destination": "Marrakech, Morocco",
       "startDate": "2026-10-05",
       "endDate": "2026-10-12",
-      "price": 1800,
-      "description": "Sahara Desert camping, Marrakech souks, and Atlas Mountains.",
-      "image": "https://picsum.photos/id/1047/400/200"
+      "price": 1810,
+      "image": "https://picsum.photos/id/1047/400/200",
+      "description": "Sahara Desert camping, Marrakech souks, and Atlas Mountains."
     },
     {
       "id": "15",
@@ -387,5 +387,6 @@
       "tripId": "2",
       "people": 3
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

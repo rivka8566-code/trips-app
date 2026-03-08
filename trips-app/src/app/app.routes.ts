@@ -5,6 +5,7 @@ import { Home } from './pages/home/home';
 import { AllTrips } from './pages/all-trips/all-trips';
 import { MyTrips } from './pages/my-trips/my-trips';
 import { DetailsTrip } from './pages/details-trip/details-trip';
+import { EditTrip } from './pages/edit-trip/edit-trip';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,6 +20,7 @@ export const routes: Routes = [
         { path: '', redirectTo: 'all-trips', pathMatch: 'full' },
         { path: 'all-trips', component: AllTrips },
         { path: 'all-trips/:id', component: DetailsTrip },
+        { path: 'edit-trip/:id', component: EditTrip },
         { path: 'my-trips', component: MyTrips },
         { path: 'my-trips/:id', component: DetailsTrip }
       ]

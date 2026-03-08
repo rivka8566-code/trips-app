@@ -39,7 +39,7 @@ export class TripCard implements OnInit {
   }
 
   editTrip() {
-    console.log('Edit trip', this.tripId());
+    this.router.navigate(['/home/edit-trip', this.tripId()]);
   }
 
   openDeleteDialog() {

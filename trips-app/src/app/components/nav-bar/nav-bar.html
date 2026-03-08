@@ -11,8 +11,8 @@
     <div class="user-section">
       <span class="username">Hello, {{ userName }}</span>
       <nav class="nav-buttons">
-        <button class="nav-btn" [class.active]="activeTab === 'all-trips'" (click)="allTrips()">All Trips</button>
-        <button class="nav-btn" [class.active]="activeTab === 'my-trips'" (click)="myTrips()">My Trips</button>
+        <a routerLink="/home/all-trips" routerLinkActive="active" class="nav-btn">All Trips</a>
+        <a routerLink="/home/my-trips" routerLinkActive="active" class="nav-btn">My Trips</a>
         <button class="logout-btn" (click)="logout()">Logout</button>
       </nav>
     </div>
