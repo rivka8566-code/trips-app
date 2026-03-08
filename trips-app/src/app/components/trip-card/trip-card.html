@@ -1,6 +1,6 @@
 @if(trip(); as tripData) {
   <div class="trip-card">
-    <img [src]="tripData.image" [alt]="tripData.name" class="trip-image">
+    <img [src]="tripData.image" [alt]="tripData.name" class="trip-image" (click)="viewTripDetails()" style="cursor: pointer;">
     <div class="trip-info">
       <h3>{{ tripData.name }}</h3>
       <p class="destination">{{ tripData.destination }}</p>

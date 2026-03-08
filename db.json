@@ -28,7 +28,7 @@
       "password": "davidpass",
       "isAdmin": false
     },
-     {
+    {
       "id": "5",
       "name": "Eva Green",
       "email": "eva@example.com",
@@ -136,6 +136,206 @@
       "price": 1500,
       "description": "Hagia Sophia, Blue Mosque, and Bosphorus cruise.",
       "image": "https://picsum.photos/id/1049/400/200"
+    },
+    {
+      "id": "11",
+      "name": "Swiss Alps Adventure",
+      "destination": "Interlaken, Switzerland",
+      "startDate": "2026-08-15",
+      "endDate": "2026-08-22",
+      "price": 2200,
+      "description": "Hiking in the Alps, Jungfraujoch excursion, and scenic train rides.",
+      "image": "https://picsum.photos/id/1036/400/200"
+    },
+    {
+      "id": "12",
+      "name": "Iceland Northern Lights",
+      "destination": "Reykjavik, Iceland",
+      "startDate": "2026-09-10",
+      "endDate": "2026-09-17",
+      "price": 2400,
+      "description": "Chase the Northern Lights, Blue Lagoon, and Golden Circle tour.",
+      "image": "https://picsum.photos/id/1039/400/200"
+    },
+    {
+      "id": "13",
+      "name": "Croatia Coast",
+      "destination": "Dubrovnik, Croatia",
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-27",
+      "price": 1650,
+      "description": "Explore Old Town, island hopping, and Adriatic Sea adventures.",
+      "image": "https://picsum.photos/id/1043/400/200"
+    },
+    {
+      "id": "14",
+      "name": "Morocco Desert Safari",
+      "destination": "Marrakech, Morocco",
+      "startDate": "2026-10-05",
+      "endDate": "2026-10-12",
+      "price": 1800,
+      "description": "Sahara Desert camping, Marrakech souks, and Atlas Mountains.",
+      "image": "https://picsum.photos/id/1047/400/200"
+    },
+    {
+      "id": "15",
+      "name": "Scottish Highlands",
+      "destination": "Edinburgh, Scotland",
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-22",
+      "price": 1750,
+      "description": "Edinburgh Castle, Loch Ness, and Highland whisky tours.",
+      "image": "https://picsum.photos/id/1050/400/200"
+    },
+    {
+      "id": "16",
+      "name": "Norwegian Fjords",
+      "destination": "Bergen, Norway",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-08",
+      "price": 2100,
+      "description": "Fjord cruises, Bergen fish market, and scenic railways.",
+      "image": "https://picsum.photos/id/1053/400/200"
+    },
+    {
+      "id": "17",
+      "name": "Budapest Thermal Baths",
+      "destination": "Budapest, Hungary",
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-20",
+      "price": 1250,
+      "description": "Thermal baths, Danube river cruise, and Parliament building.",
+      "image": "https://picsum.photos/id/1055/400/200"
+    },
+    {
+      "id": "18",
+      "name": "Malta Island Hopping",
+      "destination": "Valletta, Malta",
+      "startDate": "2026-12-01",
+      "endDate": "2026-12-08",
+      "price": 1550,
+      "description": "Historic Valletta, Blue Lagoon, and Gozo island tours.",
+      "image": "https://picsum.photos/id/1057/400/200"
+    },
+    {
+      "id": "19",
+      "name": "Polish Heritage",
+      "destination": "Krakow, Poland",
+      "startDate": "2027-01-10",
+      "endDate": "2027-01-17",
+      "price": 1200,
+      "description": "Wawel Castle, Auschwitz memorial, and salt mines tour.",
+      "image": "https://picsum.photos/id/1059/400/200"
+    },
+    {
+      "id": "20",
+      "name": "Irish Countryside",
+      "destination": "Dublin, Ireland",
+      "startDate": "2027-02-01",
+      "endDate": "2027-02-08",
+      "price": 1600,
+      "description": "Cliffs of Moher, Ring of Kerry, and Dublin pubs tour.",
+      "image": "https://picsum.photos/id/1061/400/200"
+    },
+    {
+      "id": "21",
+      "name": "Amalfi Coast Paradise",
+      "destination": "Positano, Italy",
+      "startDate": "2027-03-01",
+      "endDate": "2027-03-08",
+      "price": 1950,
+      "description": "Stunning coastal views, Positano beaches, and Italian cuisine.",
+      "image": "https://picsum.photos/id/1063/400/200"
+    },
+    {
+      "id": "22",
+      "name": "Copenhagen Design Tour",
+      "destination": "Copenhagen, Denmark",
+      "startDate": "2027-03-15",
+      "endDate": "2027-03-20",
+      "price": 1700,
+      "description": "Tivoli Gardens, Nyhavn harbor, and Danish design museums.",
+      "image": "https://picsum.photos/id/1065/400/200"
+    },
+    {
+      "id": "23",
+      "name": "Provence Lavender Fields",
+      "destination": "Provence, France",
+      "startDate": "2027-04-01",
+      "endDate": "2027-04-08",
+      "price": 1850,
+      "description": "Lavender fields, French villages, and wine tasting tours.",
+      "image": "https://picsum.photos/id/1067/400/200"
+    },
+    {
+      "id": "24",
+      "name": "Tuscany Wine Country",
+      "destination": "Florence, Italy",
+      "startDate": "2027-04-15",
+      "endDate": "2027-04-22",
+      "price": 2000,
+      "description": "Tuscan vineyards, Renaissance art, and countryside villas.",
+      "image": "https://picsum.photos/id/1069/400/200"
+    },
+    {
+      "id": "25",
+      "name": "Stockholm Archipelago",
+      "destination": "Stockholm, Sweden",
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-08",
+      "price": 1800,
+      "description": "Island hopping, Vasa Museum, and Swedish design tours.",
+      "image": "https://picsum.photos/id/1071/400/200"
+    },
+    {
+      "id": "26",
+      "name": "Belgian Chocolate Tour",
+      "destination": "Brussels, Belgium",
+      "startDate": "2027-05-15",
+      "endDate": "2027-05-20",
+      "price": 1400,
+      "description": "Chocolate workshops, Grand Place, and Bruges day trip.",
+      "image": "https://picsum.photos/id/1073/400/200"
+    },
+    {
+      "id": "27",
+      "name": "Transylvania Castles",
+      "destination": "Brasov, Romania",
+      "startDate": "2027-06-01",
+      "endDate": "2027-06-08",
+      "price": 1350,
+      "description": "Dracula's Castle, medieval towns, and Carpathian Mountains.",
+      "image": "https://picsum.photos/id/1075/400/200"
+    },
+    {
+      "id": "28",
+      "name": "Andalusia Flamenco",
+      "destination": "Seville, Spain",
+      "startDate": "2027-06-15",
+      "endDate": "2027-06-22",
+      "price": 1650,
+      "description": "Flamenco shows, Alhambra Palace, and tapas tours.",
+      "image": "https://picsum.photos/id/1077/400/200"
+    },
+    {
+      "id": "29",
+      "name": "Lake Como Retreat",
+      "destination": "Como, Italy",
+      "startDate": "2027-07-01",
+      "endDate": "2027-07-08",
+      "price": 2100,
+      "description": "Lakeside villas, boat tours, and Italian Alps views.",
+      "image": "https://picsum.photos/id/1079/400/200"
+    },
+    {
+      "id": "30",
+      "name": "Finnish Lapland",
+      "destination": "Rovaniemi, Finland",
+      "startDate": "2027-07-15",
+      "endDate": "2027-07-22",
+      "price": 2300,
+      "description": "Santa Claus Village, Arctic Circle, and midnight sun.",
+      "image": "https://picsum.photos/id/1081/400/200"
     }
   ],
   "bookings": [
@@ -179,6 +379,12 @@
       "id": "7",
       "tripId": 1,
       "userId": 1,
+      "people": 3
+    },
+    {
+      "id": "8",
+      "userId": 1,
+      "tripId": "2",
       "people": 3
     }
   ]

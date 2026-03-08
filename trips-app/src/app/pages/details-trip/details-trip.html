@@ -1,49 +1,56 @@
 <div class="trip-details-container">
-  <button class="back-btn">← חזור</button>
+  <button class="back-btn" (click)="goBack()">← חזור</button>
   
-  <div class="trip-details-card">
-    <img src="https://via.placeholder.com/800x400" alt="טיול" class="trip-image">
-    
-    <div class="trip-content">
-      <h1 class="trip-title">שם הטיול</h1>
+  @if(trip(); as tripData) {
+    <div class="trip-details-card">
+      <img [src]="tripData.image" [alt]="tripData.name" class="trip-image">
       
-      <div class="trip-info-grid">
-        <div class="info-item">
-          <span class="info-label">📍 יעד:</span>
-          <span class="info-value">שם היעד</span>
+      <div class="trip-content">
+        <h1 class="trip-title">{{ tripData.name }}</h1>
+        
+        <div class="trip-info-grid">
+          <div class="info-item">
+            <span class="info-label">:יעד</span>
+            <span class="info-value">{{ tripData.destination }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">:תאריך התחלה</span>
+            <span class="info-value">{{ tripData.startDate }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">:תאריך סיום</span>
+            <span class="info-value">{{ tripData.endDate }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">:מחיר</span>
+            <span class="info-value">₪{{ tripData.price }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">:נרשמים</span>
+            <span class="info-value">{{ totalParticipants() }} משתתפים</span>
+          </div>
         </div>
-        <div class="info-item">
-          <span class="info-label">📅 תאריך:</span>
-          <span class="info-value">01/01/2024</span>
-        </div>
-        <div class="info-item">
-          <span class="info-label">💰 מחיר:</span>
-          <span class="info-value">₪1,500</span>
-        </div>
-        <div class="info-item">
-          <span class="info-label">👥 נרשמים:</span>
-          <span class="info-value">25 משתתפים</span>
-        </div>
-      </div>
 
-      <div class="trip-description">
-        <h3>תיאור הטיול</h3>
-        <p>כאן יופיע תיאור מפורט של הטיול, הפעילויות המתוכננות, מה כלול במחיר ועוד מידע רלוונטי.</p>
-      </div>
-
-      <div class="registration-section">
-        <h3>הרשמה לטיול</h3>
-        <div class="registration-form">
-          <label for="participants">כמות משתתפים:</label>
-          <input type="number" id="participants" min="1" value="1">
-          <button class="register-btn">הירשם לטיול</button>
+        <div class="trip-description">
+          <h3>תיאור הטיול</h3>
+          <p>{{ tripData.description }}</p>
         </div>
-        <p class="already-registered">✅ משתמש כבר רשום לטיול</p>
-      </div>
 
-      <div class="cancel-section">
-        <button class="cancel-registration-btn">בטל הרשמה</button>
+        <div class="registration-section">
+          <h3>הרשמה לטיול</h3>
+          @if(isAlreadyRegistered()) {
+            <p class="already-registered">כבר נרשמת לטיול זה</p>
+          } @else {
+            <div class="registration-form">
+              <div class="form-group">
+                <label for="participants">:כמות משתתפים</label>
+                <input type="number" id="participants" min="1" [(ngModel)]="numberOfParticipants">
+              </div>
+              <button class="register-btn" (click)="registerToTrip()">הירשם לטיול</button>
+            </div>
+          }
+        </div>
       </div>
     </div>
-  </div>
+  }
 </div>

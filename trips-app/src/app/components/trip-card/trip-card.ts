@@ -5,6 +5,7 @@ import { ToastService } from '../../services/toastService';
 import { Trip } from '../../models/trip.model';
 import { CommonModule } from '@angular/common';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trip-card',
@@ -16,6 +17,7 @@ export class TripCard implements OnInit {
   tripId = input<number>(0);
   isAdmin = input<boolean>(false);
   private toastService = inject(ToastService);
+  private router = inject(Router);
   trip = signal<Trip | null>(null);
   hasBookings = signal<boolean>(false);
   showDeleteDialog = signal<boolean>(false);
@@ -57,5 +59,9 @@ export class TripCard implements OnInit {
     } catch (error) {
       this.toastService.showError('Error deleting trip');
     }
+  }
+
+  viewTripDetails() {
+    this.router.navigate(['/home/all-trips', this.tripId()]);
   }
 }
