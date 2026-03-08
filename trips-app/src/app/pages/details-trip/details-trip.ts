@@ -21,7 +21,12 @@ export class DetailsTrip implements OnInit {
   numberOfParticipants = signal<number>(1);
   isAlreadyRegistered = signal<boolean>(false);
   totalParticipants = signal<number>(0);
-  currentUserId = 1; 
+  currentUserId: number;
+
+  constructor() {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    this.currentUserId = Number(user.id) || 1;
+  } 
 
   async ngOnInit() {
     const tripId = Number(this.route.snapshot.params['id']);

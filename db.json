@@ -378,7 +378,7 @@
     {
       "id": "7",
       "tripId": 1,
-      "userId": 1,
+      "userId": 2,
       "people": 3
     },
     {
@@ -395,21 +395,39 @@
     },
     {
       "id": "10",
-      "userId": 1,
+      "userId": 4,
       "tripId": "29",
       "people": 3
     },
     {
       "id": "11",
-      "userId": 1,
+      "userId": 4,
       "tripId": "25",
       "people": 1
     },
     {
-      "id": 12,
-      "userId": 1,
+      "id": "12",
+      "userId": 3,
       "tripId": "13",
       "people": 1
+    },
+    {
+      "id": "13",
+      "userId": 2,
+      "tripId": "16",
+      "people": 2
+    },
+    {
+      "id": "14",
+      "userId": 5,
+      "tripId": "28",
+      "people": 1
+    },
+    {
+      "id": 15,
+      "userId": 3,
+      "tripId": "28",
+      "people": 3
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
