@@ -48,6 +48,13 @@
       "email": "rivka@gmail.com",
       "password": "rivka8566",
       "isAdmin": false
+    },
+    {
+      "id": "8",
+      "name": "Riv",
+      "email": "rivka856@gmail.com",
+      "password": "Riv123@",
+      "isAdmin": false
     }
   ],
   "trips": [

@@ -1,5 +1,4 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { getBookings } from '../../services/bookingsService';
 import { getTripById } from '../../services/tripsService';
 import { Trip } from '../../models/trip.model';
@@ -8,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-my-trips',
-  imports: [RouterLink, TripCard, CommonModule],
+  imports: [ TripCard, CommonModule],
   templateUrl: './my-trips.html',
   styleUrl: './my-trips.css',
 })
