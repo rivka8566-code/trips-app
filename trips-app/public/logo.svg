@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mountains -->
+  <path d="M32 8L16 24L32 16L48 24L32 8Z" fill="#3d5a5c" stroke="#3d5a5c" stroke-width="2"/>
+  
+  <!-- Tree -->
+  <path d="M20 32L22 28L24 32L22 30L22 36L20 36L20 30L20 32Z" fill="#3d5a5c"/>
+  
+  <!-- Sun -->
+  <circle cx="36" cy="32" r="6" fill="#f4a261"/>
+  
+  <!-- Path -->
+  <path d="M16 40Q24 36 32 40T48 40" stroke="#3d5a5c" stroke-width="3" fill="none"/>
+  
+  <!-- Hiker -->
+  <circle cx="44" cy="30" r="2" fill="#3d5a5c"/>
+  <path d="M44 32L44 38M44 34L46 36M44 38L42 42M44 38L46 42" stroke="#3d5a5c" stroke-width="1.5"/>
+</svg>

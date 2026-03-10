@@ -436,12 +436,6 @@
       "people": 3
     },
     {
-      "id": "16",
-      "userId": "7",
-      "tripId": "1",
-      "people": 1
-    },
-    {
       "id": "17",
       "userId": "2",
       "tripId": "2",
@@ -487,6 +481,12 @@
       "id": "25",
       "userId": "1",
       "tripId": "2",
+      "people": 1
+    },
+    {
+      "id": "26",
+      "userId": "1",
+      "tripId": "4",
       "people": 1
     }
   ],

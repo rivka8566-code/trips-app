@@ -5,8 +5,14 @@
 </div>
 
 <div class="trip-list">
-  @for (trip of trips(); track trip.id) {
-    <app-trip-card [tripId]="trip.id" />
+  @if(trips().length === 0) {
+    <div class="no-trips-message">
+      <p>You haven't registered for any trips yet. <a routerLink="/home/all-trips">Browse All Trips</a></p>
+    </div>
+  } @else {
+    @for (trip of trips(); track trip.id) {
+      <app-trip-card [tripId]="trip.id" />
+    }
   }
 </div>
 
