@@ -12,12 +12,12 @@ export const GET = async (nativ: string) => {
     return response.data;
 };
 
-export const GET_BY_ID = async (nativ: string, id: number) => {
+export const GET_BY_ID = async (nativ: string, id: string) => {
     const response = await api.get(`/${nativ}/${id}`);
     return response.data;
 };
 
-export const PUT = async (nativ: string, id: number, body: any) => {
+export const PUT = async (nativ: string, id: string, body: any) => {
     const response = await api.put(`/${nativ}/${id}`, body);
     return response.data;
 };
@@ -27,7 +27,7 @@ export const POST = async (nativ: string, body: any) => {
     return response.data;
 };
 
-export const DELETE = async (nativ: string, id: number) => {
+export const DELETE = async (nativ: string, id: string) => {
     const response = await api.delete(`/${nativ}/${id}`);
     return response.data;
 };

@@ -10,7 +10,7 @@ export const getUsers = async () => {
     }
 };
 
-export const getUserById = async (id: number) => {
+export const getUserById = async (id: string) => {
     try {
         return await GET_BY_ID("users", id);
     } catch (error) {

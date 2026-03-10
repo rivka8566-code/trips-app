@@ -1,8 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { getTripById, updateTrip } from '../../services/tripsService';
+import { getTripById, updateTrip, createTrip, getTrips } from '../../services/tripsService';
 import { ToastService } from '../../services/toastService';
 
 @Component({
@@ -15,7 +15,8 @@ export class EditTrip implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private toastService = inject(ToastService);
-  tripId: number = 0;
+  tripId: string = '';
+  isEditMode = signal<boolean>(false);
 
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -36,29 +37,45 @@ export class EditTrip implements OnInit {
   get description() { return this.form.get('description')!; }
 
   async ngOnInit() {
-    this.tripId = Number(this.route.snapshot.params['id']);
-    try {
-      const tripData = await getTripById(this.tripId);
-      this.form.patchValue(tripData);
-    } catch (error) {
-      console.error('Error loading trip:', error);
-      this.toastService.showError('Error loading trip details');
+    if (this.route.snapshot.params['id']) {
+      this.isEditMode.set(true);
+      this.tripId = this.route.snapshot.params['id'];
+      try {
+        const tripData = await getTripById(this.tripId);
+        this.form.patchValue(tripData);
+      } catch (error) {
+        console.error('Error loading trip:', error);
+        this.toastService.showError('Error loading trip details');
+      }
+    } else {
+      this.isEditMode.set(false);
     }
   }
 
   async saveTrip() {
     if (this.form.valid) {
       try {
-        const tripData = {
-          id: this.tripId,
-          ...this.form.value
-        };
-        await updateTrip(this.tripId, tripData as any);
-        this.toastService.showSuccess('Trip updated successfully!');
+        if (this.isEditMode()) {
+          const tripData = {
+            id: this.tripId,
+            ...this.form.value
+          };
+          await updateTrip(this.tripId, tripData as any);
+          this.toastService.showSuccess('Trip updated successfully!');
+        } else {
+          const trips = await getTrips();
+          const maxId = trips.length > 0 ? Math.max(...trips.map((t: any) => Number(t.id))) : 0;
+          const tripData = {
+            id: String(maxId + 1),
+            ...this.form.value
+          };
+          await createTrip(tripData as any);
+          this.toastService.showSuccess('Trip created successfully!');
+        }
         this.router.navigate(['/home/all-trips']);
       } catch (error) {
-        console.error('Error updating trip:', error);
-        this.toastService.showError('Error updating trip');
+        console.error('Error saving trip:', error);
+        this.toastService.showError('Error saving trip');
       }
     } else {
       this.form.markAllAsTouched();

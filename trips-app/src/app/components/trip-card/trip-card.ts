@@ -14,22 +14,25 @@ import { Router } from '@angular/router';
   styleUrl: './trip-card.css',
 })
 export class TripCard implements OnInit {
-  tripId = input<number>(0);
-  isAdmin = input<boolean>(false);
+  tripId = input<string>('');
+  isAdmin? = input<boolean>(false);
   private toastService = inject(ToastService);
   private router = inject(Router);
   trip = signal<Trip | null>(null);
   hasBookings = signal<boolean>(false);
   showDeleteDialog = signal<boolean>(false);
-  onTripDeleted = output<number>();
+  onTripDeleted? = output<string>();
+  inAllTrips = signal<boolean>(true)
 
   async ngOnInit() {
     try {
       const tripData = await getTripById(this.tripId());
       this.trip.set(tripData);
-      
+      if(window.location.pathname.includes('my-trips'))
+        this.inAllTrips.set(false)
+
       const bookings = await getBookings();
-      const tripHasBookings = bookings.some((b: any) => b.tripId === this.tripId());
+      const tripHasBookings = bookings.some((b: any) => String(b.tripId) === String(this.tripId()));
       this.hasBookings.set(tripHasBookings);
     }
     catch (error) {
@@ -55,13 +58,14 @@ export class TripCard implements OnInit {
       await deleteTrip(this.tripId());
       this.toastService.showSuccess('Trip deleted successfully');
       this.showDeleteDialog.set(false);
-      this.onTripDeleted.emit(this.tripId());
+      this.onTripDeleted?.emit(this.tripId());
     } catch (error) {
       this.toastService.showError('Error deleting trip');
     }
   }
 
   viewTripDetails() {
-    this.router.navigate(['/home/all-trips', this.tripId()]);
+    const location = String(window.location.pathname);
+    this.router.navigate([location + '/' + this.tripId()]);
   }
 }

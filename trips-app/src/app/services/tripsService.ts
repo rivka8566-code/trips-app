@@ -11,7 +11,7 @@ export const getTrips = async () => {
     }
 };
 
-export const getTripById = async (id: number) => {
+export const getTripById = async (id: string) => {
     try {
         return await GET_BY_ID("trips", id);
     } catch (error) {
@@ -29,7 +29,7 @@ export const createTrip = async (tripData: Trip) => {
     }
 };
 
-export const updateTrip = async (id: number, tripData: Trip) => {
+export const updateTrip = async (id: string, tripData: Trip) => {
     try {
         return await PUT("trips", id, tripData);
     } catch (error) {
@@ -38,7 +38,7 @@ export const updateTrip = async (id: number, tripData: Trip) => {
     }
 };
 
-export const deleteTrip = async (id: number) => {
+export const deleteTrip = async (id: string) => {
     try {
         return await DELETE("trips", id);
     } catch (error) {

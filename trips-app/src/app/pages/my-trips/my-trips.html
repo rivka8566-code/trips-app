@@ -2,8 +2,11 @@
   <div class="page-header">
     <h2>My Trips</h2>
   </div>
-
-  <div class="empty-state">
-    <p>You haven't booked any trips yet. <a routerLink="/home/all-trips">Browse all trips</a></p>
-  </div>
 </div>
+
+<div class="trip-list">
+  @for (trip of trips(); track trip.id) {
+    <app-trip-card [tripId]="trip.id" />
+  }
+</div>
+
