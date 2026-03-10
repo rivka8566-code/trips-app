@@ -1,6 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { getBookingsByUserId } from '../../services/bookingsService';
+import { getBookings } from '../../services/bookingsService';
 import { getTripById } from '../../services/tripsService';
 import { Trip } from '../../models/trip.model';
 import { TripCard } from '../../components/trip-card/trip-card';
@@ -23,9 +23,11 @@ export class MyTrips implements OnInit{
   async loadTrips() {
       const user = JSON.parse(localStorage.getItem('user') || '{}');
       const userId = String(user.id);
-      const bookings = await getBookingsByUserId(userId);
       
-      const tripPromises = bookings.map((booking: any) => getTripById(booking.tripId));
+      const allBookings = await getBookings();
+      const userBookings = allBookings.filter((b: any) => String(b.userId) === userId);
+      
+      const tripPromises = userBookings.map((booking: any) => getTripById(booking.tripId));
       const tripsData = await Promise.all(tripPromises);
       this.trips.set(tripsData);
   }

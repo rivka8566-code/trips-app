@@ -23,7 +23,7 @@ export class TripList implements OnInit {
     this.trips.set(tripsData);
   }
 
-  async onTripDeleted(tripId: string) {
+  onTripDeleted = async (tripId: string) => {
     await this.loadTrips();
   }
 }

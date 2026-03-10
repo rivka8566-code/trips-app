@@ -15,13 +15,13 @@ import { Router } from '@angular/router';
 })
 export class TripCard implements OnInit {
   tripId = input<string>('');
-  isAdmin? = input<boolean>(false);
+  isAdmin = input<boolean>(false);
   private toastService = inject(ToastService);
   private router = inject(Router);
   trip = signal<Trip | null>(null);
   hasBookings = signal<boolean>(false);
   showDeleteDialog = signal<boolean>(false);
-  onTripDeleted? = output<string>();
+  onTripDeleted = output<string>();
   inAllTrips = signal<boolean>(true)
 
   async ngOnInit() {
@@ -58,7 +58,7 @@ export class TripCard implements OnInit {
       await deleteTrip(this.tripId());
       this.toastService.showSuccess('Trip deleted successfully');
       this.showDeleteDialog.set(false);
-      this.onTripDeleted?.emit(this.tripId());
+      this.onTripDeleted.emit(this.tripId());
     } catch (error) {
       this.toastService.showError('Error deleting trip');
     }

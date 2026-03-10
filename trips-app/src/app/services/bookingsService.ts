@@ -12,7 +12,7 @@ export const getBookings = async () => {
 
 export const getBookingsByUserId = async (userId: string) => {
     try{
-        return await GET(`bookings/?userId=${userId}`);
+        return await GET(`bookings?userId=${userId}`);
     }catch (error) {
         console.error("Error fetching bookings for user:", userId);
         throw error;
