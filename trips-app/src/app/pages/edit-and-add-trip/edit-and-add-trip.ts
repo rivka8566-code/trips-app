@@ -6,12 +6,12 @@ import { getTripById, updateTrip, createTrip, getTrips } from '../../services/tr
 import { ToastService } from '../../services/toastService';
 
 @Component({
-  selector: 'app-edit-trip',
+  selector: 'app-edit-and-add-trip',
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './edit-trip.html',
-  styleUrl: './edit-trip.css',
+  templateUrl: './edit-and-add-trip.html',
+  styleUrl: './edit-and-add-trip.css',
 })
-export class EditTrip implements OnInit {
+export class EditAndAddTrip implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private toastService = inject(ToastService);

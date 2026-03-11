@@ -18,6 +18,6 @@ export class AllTrips implements OnInit {
   }
 
   addTrip(){
-    this.router.navigate(['home/edit-trip'])
+    this.router.navigate(['home/add-trip'])
   }
 }
