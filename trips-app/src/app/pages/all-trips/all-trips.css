@@ -64,8 +64,19 @@
   transition: border-color 0.2s;
 }
 
-.filter-group input:focus,
-.filter-group select:focus {
-  outline: none;
-  border-color: #333;
+.reset-btn {
+  padding: 10px 20px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+  align-self: flex-end;
+}
+
+.reset-btn:hover {
+  background: #333;
 }

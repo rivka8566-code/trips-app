@@ -1,5 +1,5 @@
 <div class="trip-list">
-  @for (trip of trips(); track trip.id) {
+  @for (trip of allTrips(); track trip.id) {
     <app-trip-card [tripId]="trip.id" [isAdmin]="isAdmin()" (onTripDeleted)="onTripDeleted($event)" />
   }
 </div>

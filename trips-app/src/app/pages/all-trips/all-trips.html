@@ -2,34 +2,35 @@
   <div class="page-header">
     <h2>All Trips</h2>
     @if(isAdmin()) {
-      <button class="add-trip-btn" (click) = "addTrip()">+ Add New Trip</button>
+      <button class="add-trip-btn" (click)="addTrip()">+ Add New Trip</button>
     }
   </div>
 
   <div class="filters-section">
     <div class="filter-group">
-      <label>Filter by destination:</label>
-      <input type="text" placeholder="Search destination...">
+      <label>Destination:</label>
+      <input type="text" placeholder="Search destination..." [(ngModel)]="filterDestination" (ngModelChange)="applyFilters()">
     </div>
     <div class="filter-group">
-      <label>Filter by date:</label>
-      <input type="date">
+      <label>From date:</label>
+      <input type="date" [(ngModel)]="filterDate" (ngModelChange)="applyFilters()">
     </div>
     <div class="filter-group">
-      <label>Filter by price:</label>
-      <input type="number" placeholder="Max price">
+      <label>Max price:</label>
+      <input type="number" placeholder="Max price" [(ngModel)]="filterMaxPrice" (ngModelChange)="applyFilters()">
     </div>
     <div class="filter-group">
       <label>Sort by:</label>
-      <select>
-        <option>Date</option>
-        <option>Price</option>
-        <option>Destination</option>
+      <select [(ngModel)]="sortBy" (ngModelChange)="applyFilters()">
+        <option value="date">Date</option>
+        <option value="price">Price</option>
+        <option value="destination">Destination</option>
       </select>
     </div>
+    <button class="reset-btn" (click)="resetFilters()">Reset</button>
   </div>
 
   <div>
-    <app-trip-list [isAdmin]="isAdmin()"></app-trip-list>
+    <app-trip-list [isAdmin]="isAdmin()" [trips]="filteredTrips()"></app-trip-list>
   </div>
 </div>

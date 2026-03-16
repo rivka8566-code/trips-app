@@ -1,8 +1,8 @@
-import { Component, OnInit, signal, input } from '@angular/core';
+import { Component, OnInit, signal, input, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TripCard } from '../trip-card/trip-card';
-import { getTrips } from '../../services/tripsService';
 import { Trip } from '../../models/trip.model';
+import { getTrips } from '../../services/tripsService';
 
 @Component({
   selector: 'app-trip-list',
@@ -12,15 +12,24 @@ import { Trip } from '../../models/trip.model';
 })
 export class TripList implements OnInit {
   isAdmin = input<boolean>(false);
-  trips = signal<Trip[]>([]);
+  trips = input<Trip[]>([]);
+  allTrips = signal<Trip[]>([]);
+
+  constructor() {
+    effect(() => {
+      if (this.trips().length > 0)
+        this.allTrips.set(this.trips());
+    });
+  }
 
   async ngOnInit() {
-    await this.loadTrips();
+    if (this.trips().length === 0)
+      await this.loadTrips();
   }
 
   async loadTrips() {
     const tripsData = await getTrips();
-    this.trips.set(tripsData);
+    this.allTrips.set(tripsData);
   }
 
   onTripDeleted = async (tripId: string) => {
