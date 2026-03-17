@@ -9,20 +9,20 @@
   <div class="filters-section">
     <div class="filter-group">
       <label>Destination:</label>
-      <input type="text" placeholder="Search destination..." [(ngModel)]="filterDestination" (ngModelChange)="applyFilters()">
+      <input type="text" placeholder="Search destination..." [(ngModel)]="filters.destination" (ngModelChange)="applyFilters()">
     </div>
     <div class="filter-group">
       <label>From date:</label>
-      <input type="date" [(ngModel)]="filterDate" (ngModelChange)="applyFilters()">
+      <input type="date" [(ngModel)]="filters.startDate" (ngModelChange)="applyFilters()">
     </div>
     <div class="filter-group">
       <label>Max price:</label>
-      <input type="number" placeholder="Max price" [(ngModel)]="filterMaxPrice" (ngModelChange)="applyFilters()">
+      <input type="number" placeholder="Max price" [(ngModel)]="filters.maxPrice" (ngModelChange)="applyFilters()">
     </div>
     <div class="filter-group">
       <label>Sort by:</label>
-      <select [(ngModel)]="sortBy" (ngModelChange)="applyFilters()">
-        <option value="date">Date</option>
+      <select [(ngModel)]="filters.sortBy" (ngModelChange)="applyFilters()">
+        <option value="startDate">Date</option>
         <option value="price">Price</option>
         <option value="destination">Destination</option>
       </select>
@@ -31,6 +31,10 @@
   </div>
 
   <div>
-    <app-trip-list [isAdmin]="isAdmin()" [trips]="filteredTrips()"></app-trip-list>
+    @if(trips().length === 0) {
+      <p class="no-trips">No trips available for you at the moment.</p>
+    } @else {
+      <app-trip-list [isAdmin]="isAdmin()" [trips]="trips()" (tripDeleted)="loadTrips()"></app-trip-list>
+    }
   </div>
 </div>

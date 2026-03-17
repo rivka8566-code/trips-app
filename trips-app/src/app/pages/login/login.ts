@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { getUsers } from '../../services/usersService';
-import { User } from '../../models/user.model';
+import { getUsers, findUser } from '../../services/usersService';
 import { ToastService } from '../../services/toastService';
 import { CommonModule } from '@angular/common';
 
@@ -15,6 +14,7 @@ import { CommonModule } from '@angular/common';
 export class Login {
   private router = inject(Router);
   private toastService = inject(ToastService);
+  
   showPassword = false;
 
   form = new FormGroup({
@@ -44,10 +44,7 @@ export class Login {
 
   async submit() {
     if (this.form.valid) {
-      const users = await getUsers();
-      const user = users.find((u: User) => 
-        u.name === this.form.value.name && u.password === this.form.value.password
-      );
+      const user = await findUser(this.form.value.name!, this.form.value.password!);
       
       if (user) {
         this.toastService.showSuccess('Login successful!');

@@ -17,10 +17,12 @@ export class DetailsTrip implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private toastService = inject(ToastService);
+
   trip = signal<Trip | null>(null);
   numberOfParticipants = signal<number>(1);
   isAlreadyRegistered = signal<boolean>(false);
   totalParticipants = signal<number>(0);
+  
   currentUserId: string;
 
   source = signal<'all-trips' | 'my-trips'>('all-trips');

@@ -7,8 +7,8 @@ export const api = axios.create({
 });
 
 
-export const GET = async (nativ: string) => {
-    const response = await api.get(`/${nativ}`);
+export const GET = async (nativ: string, params?: Record<string, any>) => {
+    const response = await api.get(`/${nativ}`, { params });
     return response.data;
 };
 

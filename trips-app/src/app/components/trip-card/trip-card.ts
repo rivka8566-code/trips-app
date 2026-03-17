@@ -16,12 +16,15 @@ import { Router } from '@angular/router';
 export class TripCard implements OnInit {
   tripId = input<string>('');
   isAdmin = input<boolean>(false);
+
+  onTripDeleted = output<string>();
+
   private toastService = inject(ToastService);
   private router = inject(Router);
+
   trip = signal<Trip | null>(null);
   hasBookings = signal<boolean>(false);
   showDeleteDialog = signal<boolean>(false);
-  onTripDeleted = output<string>();
   inAllTrips = signal<boolean>(true)
 
   async ngOnInit() {

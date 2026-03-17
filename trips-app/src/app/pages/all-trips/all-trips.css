@@ -80,3 +80,10 @@
 .reset-btn:hover {
   background: #333;
 }
+
+.no-trips {
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+  padding: 60px 0;
+}

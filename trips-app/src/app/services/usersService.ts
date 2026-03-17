@@ -1,5 +1,5 @@
 import { User } from "../models/user.model";
-import { GET, GET_BY_ID, POST } from "./apiService";
+import { GET, POST } from "./apiService";
 
 export const getUsers = async () => {
     try{
@@ -10,20 +10,23 @@ export const getUsers = async () => {
     }
 };
 
-export const getUserById = async (id: string) => {
+export const findUser = async (name: string, password?: string) => {
     try {
-        return await GET_BY_ID("users", id);
+        const params: Record<string, any> = { name };
+        if (password) params['password'] = password;
+        const users = await GET("users", params);
+        return users[0] || null;
     } catch (error) {
-        console.error("Error fetching user by ID:", error);
+        console.error("Error finding user:", error);
         throw error;
     }
 };
 
-    export const createUser = async (userData: User) => {
-        try {
-            return await POST("users", userData);
-        } catch (error) {
-            console.error("Error creating user:", error);
-            throw error;
-        }
-    };
+export const createUser = async (userData: Omit<User, 'id'>) => {
+    try {
+        return await POST("users", userData);
+    } catch (error) {
+        console.error("Error creating user:", error);
+        throw error;
+    }
+};

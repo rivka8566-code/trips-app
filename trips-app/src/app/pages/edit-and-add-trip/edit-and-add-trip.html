@@ -24,28 +24,43 @@
       <div class="form-row">
         <div class="form-group">
           <label for="startDate">Start Date:</label>
-          <input type="date" id="startDate" formControlName="startDate" required>
+          <input type="date" id="startDate" formControlName="startDate" [class.error]="startDate.invalid && startDate.touched" required>
+          @if(startDate.invalid && startDate.touched) {
+            <small class="error-message">Start date is required</small>
+          }
         </div>
 
         <div class="form-group">
           <label for="endDate">End Date:</label>
-          <input type="date" id="endDate" formControlName="endDate" required>
+          <input type="date" id="endDate" formControlName="endDate" [class.error]="endDate.invalid && endDate.touched" required>
+          @if(endDate.invalid && endDate.touched) {
+            <small class="error-message">End date is required</small>
+          }
         </div>
       </div>
 
       <div class="form-group">
         <label for="price">Price:</label>
-        <input type="number" id="price" formControlName="price" min="0" required>
+        <input type="number" id="price" formControlName="price" min="0" [class.error]="price.invalid && price.touched" required>
+        @if(price.invalid && price.touched) {
+          <small class="error-message">Price is required and must be 0 or more</small>
+        }
       </div>
 
       <div class="form-group">
         <label for="image">Image URL:</label>
-        <input type="text" id="image" formControlName="image" required>
+        <input type="text" id="image" formControlName="image" [class.error]="image.invalid && image.touched" required>
+        @if(image.invalid && image.touched) {
+          <small class="error-message">Image URL is required</small>
+        }
       </div>
 
       <div class="form-group">
         <label for="description">Description:</label>
-        <textarea id="description" formControlName="description" rows="5" required></textarea>
+        <textarea id="description" formControlName="description" rows="5" [class.error]="description.invalid && description.touched" required></textarea>
+        @if(description.invalid && description.touched) {
+          <small class="error-message">Description is required</small>
+        }
       </div>
 
       <div class="form-actions">

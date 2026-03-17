@@ -55,6 +55,13 @@
       "email": "rivka856@gmail.com",
       "password": "Riv123@",
       "isAdmin": false
+    },
+    {
+      "id": "154c",
+      "name": "Chen11123",
+      "email": "chen123@gmail.com",
+      "password": "chen123",
+      "isAdmin": false
     }
   ],
   "trips": [

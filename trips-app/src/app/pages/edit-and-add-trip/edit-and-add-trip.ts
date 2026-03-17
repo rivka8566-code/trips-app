@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { getTripById, updateTrip, createTrip, getTrips } from '../../services/tripsService';
 import { ToastService } from '../../services/toastService';
+import { Trip } from '../../models/trip.model';
 
 @Component({
   selector: 'app-edit-and-add-trip',
@@ -15,6 +16,7 @@ export class EditAndAddTrip implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private toastService = inject(ToastService);
+
   tripId: string = '';
   isEditMode = signal<boolean>(false);
 
@@ -60,7 +62,7 @@ export class EditAndAddTrip implements OnInit {
             id: this.tripId,
             ...this.form.value
           };
-          await updateTrip(this.tripId, tripData as any);
+          await updateTrip(this.tripId, tripData as Trip);
           this.toastService.showSuccess('Trip updated successfully!');
         } else {
           const trips = await getTrips();
@@ -69,7 +71,7 @@ export class EditAndAddTrip implements OnInit {
             id: String(maxId + 1),
             ...this.form.value
           };
-          await createTrip(tripData as any);
+          await createTrip(tripData as Trip);
           this.toastService.showSuccess('Trip created successfully!');
         }
         this.router.navigate(['/home/all-trips']);

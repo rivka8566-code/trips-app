@@ -1,10 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { getUsers } from '../../services/usersService';
-import { createUser } from '../../services/usersService';
+import { createUser, findUser } from '../../services/usersService';
 import { ToastService } from '../../services/toastService';
-import { User } from '../../models/user.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,8 +14,8 @@ import { CommonModule } from '@angular/common';
 export class Register {
   private router = inject(Router);
   private toastService = inject(ToastService);
+
   showPassword = false;
-  showConfirmPassword = false;
   
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -72,14 +70,9 @@ export class Register {
     this.showPassword = !this.showPassword;
   }
 
-  toggleConfirmPasswordVisibility() {
-    this.showConfirmPassword = !this.showConfirmPassword;
-  }
-
   async submit() {
     if (this.form.valid) {
-      const users = await getUsers();
-      const userExists = users.find((u: User) => u.name === this.form.value.name);
+      const userExists = await findUser(this.form.value.name!);
       
       if (userExists) {
         this.toastService.showError('Username already exists');
@@ -87,16 +80,15 @@ export class Register {
       }
       
       const newUser = {
-        id: (users.length + 1).toString(),
         name: this.form.value.name!,
         email: this.form.value.email!,
         password: this.form.value.password!,
         isAdmin: false
       };
       
-      await createUser(newUser);
+      const createdUser = await createUser(newUser);
       this.toastService.showSuccess('Registration successful!');
-      localStorage.setItem('user', JSON.stringify(newUser));
+      localStorage.setItem('user', JSON.stringify(createdUser));
       this.router.navigate(['/home']);
     } else {
       this.form.markAllAsTouched();
